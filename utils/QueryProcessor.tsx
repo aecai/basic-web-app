@@ -31,6 +31,17 @@ export default function QueryProcessor(query: string): string {
     // Return the sum
     return sum.toString();
   }
+  
+  if (query.toLowerCase().includes("largest")) {
+    // Extract the numbers from the query
+    const numbers = query.match(/\d+/g);
+
+    // Find the largest number
+    const largest = Math.max(...numbers.map(Number));
+
+    // Return the largest number
+    return largest.toString();
+  }
 
   return "";
 }

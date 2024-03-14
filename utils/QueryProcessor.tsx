@@ -17,13 +17,6 @@ export default function QueryProcessor(query: string): string {
     );
   }
   if (query.toLowerCase().includes("plus")) {
-
-    return (
-      "acai"
-    );
-  }
-
-  if (query.toLowerCase().includes("plus")) {
     const parts = query.split("plus");
 
     // convert the parts to numbers and sum them

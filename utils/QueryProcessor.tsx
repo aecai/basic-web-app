@@ -17,17 +17,15 @@ export default function QueryProcessor(query: string): string {
     );
   }
   if (query.toLowerCase().includes("plus")) {
-    // Regular expression to match numbers
-    const numberRegex = /\d+/g;
-    
-    // Extract all numbers from the query
-    const numbers = query.match(numberRegex);
+    // Find the index of "plus" in the query
+    const plusIndex = query.toLowerCase().indexOf("plus");
 
-    // Convert the extracted numbers to an array of integers
-    const parsedNumbers = numbers.map(num => parseInt(num, 10));
+    // Extract the numbers before and after "plus"
+    const num1 = parseInt(query.slice(8, plusIndex).trim(), 10);
+    const num2 = parseInt(query.slice(plusIndex + 4).trim(), 10);
 
-    // Calculate the sum of the numbers
-    const sum = parsedNumbers.reduce((acc, num) => acc + num, 0);
+    // Calculate the sum
+    const sum = num1 + num2;
 
     return sum.toString();
   }

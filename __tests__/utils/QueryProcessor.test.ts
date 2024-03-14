@@ -25,4 +25,12 @@ describe("QueryProcessor", () => {
             "aecai"
           ));
     });
+
+    test('should return name description', () => {
+        const query = "name";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "anna"
+          ));
+    });
 });

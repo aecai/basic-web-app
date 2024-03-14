@@ -17,21 +17,21 @@ export default function QueryProcessor(query: string): string {
     );
   }
   if (query.toLowerCase().includes("plus")) {
-    const parts = query.split("plus");
+    // Regular expression to match numbers
+    const numberRegex = /\d+/g;
+    
+    // Extract all numbers from the query
+    const numbers = query.match(numberRegex);
 
-    // convert the parts to numbers and sum them
-    const sum = parts.reduce((acc, part) => {
-        const num = parseFloat(part.trim());
-        if (!isNaN(num)) {
-            return acc + num;
-        }
-        return acc;
-    }, 0);
+    // Convert the extracted numbers to an array of integers
+    const parsedNumbers = numbers.map(num => parseInt(num, 10));
 
-    // Return the sum
+    // Calculate the sum of the numbers
+    const sum = parsedNumbers.reduce((acc, num) => acc + num, 0);
+
     return sum.toString();
   }
-  
+
   if (query.toLowerCase().includes("largest")) {
     // Extract the numbers from the query
     const numbers = query.match(/\d+/g);

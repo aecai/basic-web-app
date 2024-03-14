@@ -13,7 +13,7 @@ export default function QueryProcessor(query: string): string {
   }
   if (query.toLowerCase().includes("name")) {
     return (
-      "acai"
+      "anna"
     );
   }
   if (query.toLowerCase().includes("plus")) {

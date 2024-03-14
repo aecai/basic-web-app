@@ -13,8 +13,31 @@ export default function QueryProcessor(query: string): string {
   }
   if (query.toLowerCase().includes("name")) {
     return (
-      "anna"
+      "acai"
     );
   }
+  if (query.toLowerCase().includes("plus")) {
+
+    return (
+      "acai"
+    );
+  }
+
+  if (query.toLowerCase().includes("plus")) {
+    const parts = query.split("plus");
+
+    // convert the parts to numbers and sum them
+    const sum = parts.reduce((acc, part) => {
+        const num = parseFloat(part.trim());
+        if (!isNaN(num)) {
+            return acc + num;
+        }
+        return acc;
+    }, 0);
+
+    // Return the sum
+    return sum.toString();
+  }
+
   return "";
 }
